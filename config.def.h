@@ -27,10 +27,13 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     isfloating   isterminal noswallow monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           0,         0,        -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           0,         0,        -1 },
-	{ "st",       NULL,       NULL,       0,            0,           1,         1,        -1 },
+	/* class      instance    title       tags mask    isfloating   isterminal   noswallow  monitor    float x,y,w,h         floatborderpx*/
+	{ "Gimp",     NULL,       NULL,       0,            1,           0,          0,        -1,        50,50,500,500,        5 },
+	{ "qutebrowser", NULL,    NULL,       1,            0,           0,          0,        -1,        50,50,500,500,        5 },
+	{ "st",          NULL,    NULL,       0,            0,           1,          1,        -1,        50,50,500,500,        5 },
+	{ "xfreerdp",    NULL,    NULL,       1 << 7,       0,           1,          1,        -1,        50,50,500,500,        5 },
+	/* class      instance                title      tags mask    isfloating   isterminal   noswallow  monitor    float x,y,w,h         floatborderpx*/
+	{ NULL, "microsoft teams - insiders", NULL,      1 << 8,          0,         1,         1,         -1,        50,50,500,500,        	5 },
 };
 
 /* layout(s) */
