@@ -4,7 +4,7 @@
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
-static const int topbar             = 1;        /* 0 means bottom bar */
+static const int topbar             = 0;        /* 0 means bottom bar */
 static const char *fonts[]          = { "monospace:size=10" };
 static const char dmenufont[]       = "monospace:size=10";
 static char normbgcolor[]           = "#222222";
@@ -32,12 +32,13 @@ static const Rule rules[] = {
 	{ "qutebrowser", NULL,    NULL,       1,            0,           0,          0,        -1,        50,50,500,500,        5 },
 	{ "st",          NULL,    NULL,       0,            0,           1,          1,        -1,        50,50,500,500,        5 },
 	{ "xfreerdp",    NULL,    NULL,       1 << 7,       0,           1,          1,        -1,        50,50,500,500,        5 },
+	{ NULL,          NULL,    "scratch",  0,            1,           1,          1,        -1,        1500,1800,500,500,        5 },
 	/* class      instance                title      tags mask    isfloating   isterminal   noswallow  monitor    float x,y,w,h         floatborderpx*/
-	{ NULL, "microsoft teams - insiders", NULL,      1 << 8,          0,         1,         1,         -1,        50,50,500,500,        	5 },
+	{ NULL, "microsoft teams - insiders", NULL,      1 << 8,          0,         1,         1,         -1,        50, 50, 500, 500,        	5 },
 };
 
 /* layout(s) */
-static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
+static const float mfact     = 0.50; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 
@@ -64,7 +65,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbordercolor, "-sf", selfgcolor, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbordercolor, "-sf", selfgcolor, "-b", NULL };
 static const char *termcmd[]  = { "st", NULL };
 
 static Key keys[] = {
