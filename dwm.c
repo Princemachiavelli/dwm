@@ -360,7 +360,11 @@ comboview(const Arg *arg) {
 		selmon->seltags ^= 1;	/*toggle tagset*/
 		combo = 1;
 		if (newtags)
+                        #if PERTAG_PATCH
+			view(&((Arg) { .ui = newtags }));
+                        #else
 			selmon->tagset[selmon->seltags] = newtags;
+			#endif // PERTAG_PATCH
 	}
 	focus(NULL);
 	arrange(selmon);
